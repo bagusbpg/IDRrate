@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">IDRrate</string>
+    <string name="get">Get!</string>
+    <string name="url">https://www.bi.go.id/en/statistik/informasi-kurs/transaksi-bi/Default.aspx</string>
+    <string name="select_currency">Select Currency</string>
+    <string name="sell">Sell</string>
+    <string name="buy">Buy</string>
+    <string name="updated_on">Updated on</string>
+    <string name="about">About</string>
+    <string name="about_me">This apps show exchange rates between Indonesian Rupiah and other world currencies according to the last update of daily data from Central Bank of Republic of Indonesia.\n\nURL is https://www.bi.go.id/en/statistik/informasi-kurs/transaksi-bi/Default.aspx.</string>
+</resources>

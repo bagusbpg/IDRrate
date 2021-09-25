@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10pt"
+        android:layout_marginBottom="10pt"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/design_default_color_primary"
+        android:textAlignment="center"
+        android:text="@string/select_currency" />
+    <Spinner
+        android:id="@+id/selectCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10pt" />
+    <Button
+        android:id="@+id/getCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15pt"
+        android:text="@string/get" />
+    <TextView
+        android:id="@+id/currencyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15pt"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/design_default_color_primary" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/design_default_color_primary"
+        android:text="@string/sell"/>
+    <TextView
+        android:id="@+id/sellView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15pt"
+        android:textSize="36sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/design_default_color_primary"
+        android:text="@string/buy"/>
+    <TextView
+        android:id="@+id/buyView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15pt"
+        android:textSize="36sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/design_default_color_primary"
+        android:text="@string/updated_on" />
+    <TextView
+        android:id="@+id/dateView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20pt"
+        android:textSize="24sp" />
+</LinearLayout>
