@@ -1,5 +1,6 @@
 package com.example.idrrate
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -47,33 +48,40 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         private const val STATE_RESULT = "state_result"
     }
 
+    @SuppressLint("SetTextI18n")
     private fun webScrap(key: String) {
         thread {
-            val doc = Jsoup
-                .connect("https://www.bi.go.id/en/statistik/informasi-kurs/transaksi-bi/Default.aspx")
-                .get()
-            val all = doc.getElementsByTag("tbody")[1]
-            val date = doc.getElementsContainingOwnText("Last Update")
-                .toString()
-                .split("<")[2]
-                .split(">")[1]
+            try {
+                val doc = Jsoup
+                    .connect("https://www.bi.go.id/en/statistik/informasi-kurs/transaksi-bi/Default.aspx")
+                    .get()
+                val all = doc.getElementsByTag("tbody")[1]
+                val date = doc.getElementsContainingOwnText("Last Update")
+                    .toString()
+                    .split("<")[2]
+                    .split(">")[1]
 
-            this.runOnUiThread {
-                val split = all.text().split(" ")
-                val selected = split.indexOf(key)
+                this.runOnUiThread {
+                    val split = all.text().split(" ")
+                    val selected = split.indexOf(key)
 
-                if (selected != -1) {
-                    val sell = "IDR " + split[selected + 2]
-                    val buy = "IDR " + split[selected + 3]
+                    if (selected != -1) {
+                        val sell = "IDR " + split[selected + 2]
+                        val buy = "IDR " + split[selected + 3]
 
-                    binding.currencyName.text = currencyList[key]
-                    binding.sellView.text = sell
-                    binding.buyView.text = buy
-                    binding.dateView.text = date
-                } else {
-                    Toast.makeText(this, "Selected currency is not available", Toast.LENGTH_LONG).show()
+                        binding.currencyName.text = currencyList[key]
+                        binding.sellView.text = sell
+                        binding.buyView.text = buy
+                        binding.dateView.text = date
+                    } else {
+                        Toast.makeText(this, "Selected currency is not available", Toast.LENGTH_LONG).show()
+                    }
                 }
-
+            }
+            catch (e: Exception) {
+                this.runOnUiThread {
+                    binding.dateView.text = "Network or source website\nis unavailable."
+                }
             }
         }
     }
